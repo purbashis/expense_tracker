@@ -40,13 +40,31 @@ class _NewExpenseState extends State<NewExpense> {
   void _submitExpenseData() {
     final enteredAmount = double.tryParse(
         _amountController.text); // try Parse ('Hello)=>null ,try Parse('1.12)
-    final amountIsInvalid = enteredAmount == null || enteredAmount <=0;
+    final amountIsInvalid = enteredAmount == null || enteredAmount <= 0;
 
-
-    if (_titleController.text.trim().isEmpty || amountIsInvalid || _selectedDate==null) {
+    if (_titleController.text.trim().isEmpty ||
+        amountIsInvalid ||
+        _selectedDate == null) {
       //show an error message
-
+      showDialog(
+        context: context,
+        builder: (ctx) => AlertDialog(
+          title: Text('Invalid input'),
+          content:
+              const Text('Please make sure a valid title ,amount , date and '),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.pop(ctx);
+              },
+              child: const Text('Okay'),
+            ),
+          ],
+        ),
+      );
+      return;
     }
+    //....
   }
 
   @override
