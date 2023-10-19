@@ -3,7 +3,6 @@ import 'package:expense_tracker/widgets/new_expense.dart';
 import 'package:flutter/material.dart';
 
 import 'package:expense_tracker/models/expense.dart';
-
 class Expenses extends StatefulWidget {
   const Expenses({super.key});
 
@@ -31,35 +30,45 @@ class _ExpensesState extends State<Expenses> {
 
   void _openAddExpenseOverlay() {
     showModalBottomSheet(
-      isScrollControlled: true ,
-        context: context, 
-        builder: (ctx) =>  NewExpense(onAddExpense:_addExpense),
-        );
+      isScrollControlled: true,
+      context: context,
+      builder: (ctx) => NewExpense(onAddExpense: _addExpense),
+    );
   }
 
-void _addExpense(Expense expense){
-  setState(() {
+  void _addExpense(Expense expense) {
+    setState(() {
       _registeredExpenses.add(expense);
-  });
+    });
+  }
 
+  void _removeExpense(Expense expense) {
+    setState(() {
+      _registeredExpenses.remove(expense);
+    });
+  }
 
-}
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Flutter Expense Tracker '),
+        title: const Text('Flutter ExpenseTracker'),
         actions: [
           IconButton(
-              icon: const Icon(Icons.add), onPressed: _openAddExpenseOverlay)
+            onPressed: _openAddExpenseOverlay,
+            icon: const Icon(Icons.add),
+          ),
         ],
       ),
       body: Column(
         children: [
-          //toolbar with the add button = > Row ()
-
           const Text('The chart'),
-          Expanded(child: ExpensesList(expenses: _registeredExpenses)),
+          Expanded(
+            child: ExpensesList(
+              expenses: _registeredExpenses,
+              onRemoveExpense: _removeExpense,
+            ),
+          ),
         ],
       ),
     );
