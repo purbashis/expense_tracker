@@ -22,9 +22,9 @@ void main() {
         ),
         textTheme: ThemeData().textTheme.copyWith(
             titleLarge: TextStyle(
-                fontWeight: FontWeight.normal,
+                fontWeight: FontWeight.bold,
                 color: kColorScheme.onSecondaryContainer,
-                fontSize: 15)),
+                fontSize: 16)),
       ),
       home: const Expenses(),
     ),
