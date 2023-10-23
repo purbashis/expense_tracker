@@ -106,5 +106,6 @@ class _ExpensesState extends State<Expenses> {
               ),
       ]) ,
     );
+    // ui gets updated to the available width 
   }
 }
