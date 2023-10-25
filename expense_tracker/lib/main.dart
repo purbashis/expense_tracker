@@ -68,3 +68,56 @@ void main() {
   );
   // });
 }
+/*
+by using MediaQuery to get the width
+
+or height of the screen on which the UI is presented
+
+or by using LayoutBuilder to get information
+
+about the constraints applied by the parent widget
+
+of the widget in which you're using LayoutBuilder.
+
+And you can use both the information you get from MediaQuery
+
+or the information you get from LayoutBuilder
+
+to then render your UI or parts of the UI conditionally
+
+to, for example, render a row instead of a column
+
+or vice versa.
+
+You also learned
+
+how you can dynamically add extra padding
+
+to make sure that the keyboard that might be opened up
+
+once the user taps into a text field is respected
+
+and the content is pushed up appropriately.
+
+And that you might also want to add scrollability
+
+to make sure that all input fields are always reachable.
+
+And you also learned about this safe area concept
+
+which makes sure that things like the device camera
+
+don't overlap your UI.
+
+And of course, last but not least,
+
+you also learned how you can find out
+
+on which platform you're running
+
+so that you then can execute different code
+
+or show different widgets
+
+based on that platform information .
+*/

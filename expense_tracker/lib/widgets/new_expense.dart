@@ -36,7 +36,9 @@ class _NewExpenseState extends State<NewExpense> {
   }
 
   void _showDialog() {
-    if (Platform.isIOS) {
+    if (Platform.isIOS)
+    //adaptive apps for iOS
+     {
       showCupertinoDialog(
           context: context,
           builder: (ctx) => CupertinoAlertDialog(
